@@ -10,7 +10,7 @@ const currentYear = new Date().getFullYear();
 
 ReactDOM.render(
   <div>
-    <h1>welcome {fname}  {lname}</h1>
+    <h1 className="heading" contentEditable="true">welcome {fname}  {lname}</h1>
     <h2>My favourite Foods</h2>
     <ul>
       <li>Fish</li>
