@@ -6,7 +6,30 @@ import ReactDOM from "react-dom";
 const num = 7
 const fname = 'shirin'
 const lname = "kal"
+let greating;
 const currentYear = new Date().getFullYear();
+const now = new Date(2023,9,5,14)
+console.log(now)
+const hour = now.getHours()
+//create custom variable to fill it depend on situation
+const headingColor = {
+color: ''
+}
+
+if (hour < 12){
+  greating="Good morning"
+  // style : yellow
+  headingColor.color = "yellow"
+}else if (  hour < 18){
+  greating="Good Afternoon"
+  // style: green
+  headingColor.color = "green"
+}else{
+  greating="Good night"
+  // style : blue
+  headingColor.color = "blue"
+}
+
 
 ReactDOM.render(
   <div>
@@ -26,6 +49,9 @@ ReactDOM.render(
     </div>
     <h5>Shirin lucky number is {num} and random num {Math.random()}</h5>
     <h4 style={{color:'green', fontSize:'20px', border: "1px black solid"}}>Copyright {currentYear}</h4>
+    <div>
+      <h1 style={headingColor}>{greating}</h1>
+    </div>
   </div>,
   document.getElementById("root")
 );
