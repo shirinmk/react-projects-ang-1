@@ -6,7 +6,7 @@ function Footer() {
 // to show variable ,we put inside {}
     return(
         <footer>
-            <p>Copyright : {year}</p>
+            <p>Copyright ⓒ {year}</p>
         </footer>
     )
 }
