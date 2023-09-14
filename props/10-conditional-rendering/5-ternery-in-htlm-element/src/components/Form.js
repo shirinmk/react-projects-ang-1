@@ -8,8 +8,8 @@ function Form(props) {
       {props.isRegistered ? null :  <input type="password" placeholder="Confirm Password" />}
      
       <button type="submit">
-
-     {props.isRegistered ?  <p>Login</p>: <p>Register </p>}
+{/* it should be string inside  */}
+     {props.isRegistered ? " Login": "Register" }
       
       </button>
     </form>
