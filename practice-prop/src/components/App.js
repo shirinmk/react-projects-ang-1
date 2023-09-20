@@ -1,38 +1,49 @@
-import React, { useState } from "react";
+import React from "react";
+import ToDoItem from "./ToDoItem";
+import { useState } from "react";
 
 function App() {
-  const [listData, setList] = useState("");
-  // crwate array to keep track of items
-  const [items, setItems] = useState([]);
+// 1.define variable for input value 
+const [inputText, setInputText] = useState(" ")
 
-  function updateForm(event) {
-    const newValue = event.target.value;
-    console.log(newValue);
-    setList(newValue);
-  }
-  function updateList() {
-    setItems((prevItem) => {
-      return [...prevItem, listData];
-    });
-    setList("")
-  }
+function handleChange(event){
+  // hold new value 
+const newValue = event.target.value
+setInputText(newValue)
+}
+
+// create array to hold all items 
+const [items, setItems] = useState([])
+
+function addItem(){
+  // hold of previous item and add new item to it 
+    setItems(prev => {
+        return[...prev, inputText]
+    })
+    setInputText("")
+}
+
   return (
     <div className="container">
       <div className="heading">
         <h1>To-Do List</h1>
       </div>
       <div className="form">
-        <input type="text" onChange={updateForm} value={listData} />
-        <button onClick={updateList}>
+        <input type="text" onChange={handleChange}  value={inputText}/>
+        <button onClick={addItem}>
           <span>Add</span>
         </button>
       </div>
       <div>
         <ul>
-          {/* <li>{items}</li> */}
-          {items.map((toDoItem) => {
-            return <li>{toDoItem}</li>;
-          })}
+        {/* to see each item of array we use a map function  */}
+        {
+            items.map(todoItem => 
+           
+            <ToDoItem item={todoItem} />
+            )
+        }
+          
         </ul>
       </div>
     </div>
